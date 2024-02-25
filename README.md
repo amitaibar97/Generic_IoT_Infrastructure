@@ -43,7 +43,6 @@ git clone https://github.com/amitaibar97/Generic_IoT_Infrastructure.git
 4. **Verify Database Connectivity**: Ensure that both the SQL database (for company information) and MongoDB (for device usage data) are correctly configured and accessible by the Gateway server.
 5. make the request by the website forms fill or by sending a request to the Gateway server in the format provided in the attached test files.
 
-A web service that enables IoT manufacturers to gather data about their device’s usage.
 ![GIoT_flow](https://github.com/amitaibar97/Generic_IoT_Infrastructure/assets/89575092/c6640299-229e-43af-a8d8-56f40e630f68)
 
 ## Contributing
