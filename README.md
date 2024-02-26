@@ -1,4 +1,5 @@
 # Generic_IoT_Infrastructure
+
 ## Description
 A web service designed for IoT manufacturers to gather data about their deviceâ€™s usage. This project, developed in Java, HTML, CSS, and JavaScript, consists of two main components: a website and a Gateway server. The website provides a user interface for company registration, using HTML, CSS, and JavaScript for the frontend, and Tomcat (servlets) for the backend. The Gateway server, written in Java, acts as a concurrent, configurable, and scalable server, serving as the backbone of the IoT infrastructure.
 
@@ -12,10 +13,29 @@ A web service designed for IoT manufacturers to gather data about their deviceâ€
 - **Integrated Watchdog Service**: Utilizes an external watchdog service to monitor the Gateway server, ensuring its continuous operation by restarting it if it stops responding, further enhancing system reliability.
 
 ## Functionalities
-- **Register Company**: Companies can register to the IoT infrastructure, with details stored in an SQL database for adminisration needs.
+- **Register Company**: Companies can register to the IoT infrastructure, with details stored in an SQL database for administrative use.
 - **Register Product**: Companies can register their product models to the service.
 - **Register IoT Devices**: Enables the registration of IoT devices under registered products.
 - **Data Update**: Devices can send usage information to be stored within the system.
+
+## Usage Flow
+example:
+Dropit is a company which provides smart trash bins. Its trash bins document their fill level and send a notification when the trash has reached a certain threshold. To use the service, the company will follow these steps:
+
+- register the company via the website
+- register models via the website
+- configure devices to communicate with the Gateway server 
+
+The following flowchart describes how to use the service:
+
+![ALT text](./GIoT_flow.png)
+
+## The Gateway Server
+The Gateway Server is the core component of the project. When a request is sent to the Gateway Server, it is initially handled by a Communication Manager that I developed. This manager is capable of processing requests over TCP, UDP, and HTTP protocols. Following this, the request is forwarded to a Thread Pool that I also implemented, which is designed for concurrent task execution.
+
+Upon being processed by the Thread Pool, each request is dissected into two main parts: Key (which represents the type of request) and Data (which comprises the information attached to the request). These are then directed to an Object Factory (design pattern) I have incorporated, which facilitates runtime object creation. It's important to note that the Factory is pre-configured with specific "recipes" before the server is activated.
+
+Subsequently, the Factory generates a Command object. This object is equipped with an exec() method that is responsible for performing operations on the company database.
 
 ## Installation
 Clone the repository to your local machine using:
@@ -23,11 +43,7 @@ Clone the repository to your local machine using:
 git clone https://github.com/amitaibar97/Generic_IoT_Infrastructure.git
 ```
 ## Environment Setup
-- This project requires Java Development Kit (JDK) version 8 or higher due to the use of lambda expressions and other Java 8 features. Ensure your JDK version meets this requirement.
-
-### Integrated Development Environment (IDE)
-- Any modern IDE that supports Java development (like IntelliJ IDEA, Eclipse, or VS Code with the Java extension) should be suitable.
-- Configure your IDE to use the correct JDK version (8 or higher) in the project settings.
+- This project requires Java Runtime Enviroment (JRE) version 8 or higher. Ensure your JRE version meets this requirement.
 
 ### Build Tools and Dependency Management
 - If you're using build tools like Maven or Gradle, ensure your IDE supports these and is configured to use the project's build file (e.g., `pom.xml` for Maven projects).
@@ -43,10 +59,15 @@ git clone https://github.com/amitaibar97/Generic_IoT_Infrastructure.git
 4. **Verify Database Connectivity**: Ensure that both the SQL database (for company information) and MongoDB (for device usage data) are correctly configured and accessible by the Gateway server.
 5. make the request by the website forms fill or by sending a request to the Gateway server in the format provided in the attached test files.
 
-![GIoT_flow](https://github.com/amitaibar97/Generic_IoT_Infrastructure/assets/89575092/c6640299-229e-43af-a8d8-56f40e630f68)
+
+
+
+
 
 ## Contributing
 contributions to this project are welcomed! Please open an issue to discuss proposed changes.
 
 ## License
 This version of the README includes more detailed information about the API functionalities. if you have some creative ideas for improvements , let me know!
+
+
