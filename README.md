@@ -35,25 +35,16 @@ Clone the repository to your local machine using:
 git clone https://github.com/amitaibar97/Generic_IoT_Infrastructure.git
 ```
 ## Environment Setup
-- This project requires Java Runtime Enviroment (JRE) version 8 or higher. Ensure your JRE version meets this requirement.
-
-### Build Tools and Dependency Management
-- If you're using build tools like Maven or Gradle, ensure your IDE supports these and is configured to use the project's build file (e.g., `pom.xml` for Maven projects).
-- Ensure all project dependencies are correctly resolved through your IDE's dependency management system or build tool configuration.
+- This project requires Java Runtime Enviroment (JRE) version 8 or higher.
 
 ### Servers
-- The website back-end is build on TomCat9 server with servlets. make sure your IDE enables it.
+- The website back-end is build on TomCat9 server with servlets.
 
 ## Usage
-1. **Start the Website**: Begin by ensuring the website is operational, serving as the frontend for company and product registrations.
-2. **Start the Tomcat Server**: Launch the Tomcat server, which should run on a distinct port and manage backend processes.
+1. **Start the Website and TomCat server**: Start a TomCat server and load the website (backend) server into it
+2. **Verify Database Connectivity**: Ensure that both the SQL database (for company information) and MongoDB (for device usage data) are correctly configured and accessible by the Gateway server.
 3. **Launch the Gateway Server**: Initiate the Gateway server, which is central to handling data communication and processing.
-4. **Verify Database Connectivity**: Ensure that both the SQL database (for company information) and MongoDB (for device usage data) are correctly configured and accessible by the Gateway server.
 5. make the request by the website forms fill or by sending a request to the Gateway server in the format provided in the attached test files.
-
-
-
-
 
 
 ## Contributing
