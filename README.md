@@ -28,7 +28,8 @@ Dropit is a company which provides smart trash bins. Its trash bins document the
 
 The following flowchart describes how to use the service:
 
-![GIoT_flow](https://github.com/amitaibar97/Generic_IoT_Infrastructure/assets/89575092/c6640299-229e-43af-a8d8-56f40e630f68)
+![GIoT_flow](https://github.com/amitaibar97/Generic_IoT_Infrastructure/assets/89575092/852ef7ef-f098-458f-a421-24202ff81597)
+
 
 ## The Gateway Server
 The Gateway Server is the core component of the project. When a request is sent to the Gateway Server, it is initially handled by a Communication Manager that I developed. This manager is capable of processing requests over TCP, UDP, and HTTP protocols. Following this, the request is forwarded to a Thread Pool that I also implemented, which is designed for concurrent task execution.
